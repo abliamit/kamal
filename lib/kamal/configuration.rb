@@ -245,6 +245,14 @@ class Kamal::Configuration
     raw_config.error_pages_path
   end
 
+  def ssl_certificate_path
+    raw_config.ssl_certificate_path
+  end
+
+  def ssl_private_key_path
+    raw_config.ssl_private_key_path
+  end
+
   def env_tags
     @env_tags ||= if (tags = raw_config.env["tags"])
       tags.collect { |name, config| Env::Tag.new(name, config: config, secrets: secrets) }
@@ -344,6 +352,14 @@ class Kamal::Configuration
 
   def proxy_error_pages_container_directory
     File.join proxy_app_container_directory, "error_pages"
+  end
+
+  def proxy_ssl_certificates_directory
+    File.join proxy_app_directory, "cert"
+  end
+
+  def proxy_ssl_certificates_container_directory
+    File.join proxy_app_container_directory, "cert"
   end
 
   def to_h

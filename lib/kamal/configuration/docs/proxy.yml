@@ -52,6 +52,28 @@ proxy:
   # Defaults to `false`:
   ssl: true
 
+  # SSL Certificate
+  #
+  # Path to the SSL certificate file (usually .crt or .pem).
+  # This certificate will be used by the proxy for HTTPS connections.
+  # The certificate will be uploaded to the proxy container and made available
+  # to the proxy process.
+  #
+  # Example:
+  # ssl_certificate_path: config/ssl/certificate.crt
+  ssl_certificate_path: config/ssl/certificate.crt
+
+  # SSL Private Key
+  #
+  # Path to the SSL private key file (usually .key).
+  # This key will be used by the proxy for HTTPS connections.
+  # The key will be uploaded to the proxy container and made available
+  # to the proxy process.
+  #
+  # Example:
+  # ssl_private_key_path: config/ssl/private.key
+  ssl_private_key_path: config/ssl/private.key
+
   # SSL redirect
   #
   # By default, kamal-proxy will redirect all HTTP requests to HTTPS when SSL is enabled.

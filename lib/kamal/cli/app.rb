@@ -9,6 +9,7 @@ class Kamal::Cli::App < Kamal::Cli::Base
         # Assets are prepared in a separate step to ensure they are on all hosts before booting
         on(KAMAL.app_hosts) do
           Kamal::Cli::App::ErrorPages.new(host, self).run
+          Kamal::Cli::App::SslCertificates.new(host, self).run
 
           KAMAL.roles_on(host).each do |role|
             Kamal::Cli::App::Assets.new(host, role, self).run
