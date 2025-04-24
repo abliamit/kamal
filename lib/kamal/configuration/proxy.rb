@@ -76,7 +76,7 @@ class Kamal::Configuration::Proxy
     end
 
     def error_pages
-      File.join config.proxy_error_pages_container_directory, config.version if config.error_pages_path
+      File.join config.proxy_boot.error_pages_container_directory, config.version if config.error_pages_path
     end
 
     def tls_certificate_path
