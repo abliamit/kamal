@@ -241,14 +241,6 @@ class Kamal::Configuration
     raw_config.error_pages_path
   end
 
-  def ssl_certificate_path
-    raw_config.ssl_certificate_path
-  end
-
-  def ssl_private_key_path
-    raw_config.ssl_private_key_path
-  end
-
   def env_tags
     @env_tags ||= if (tags = raw_config.env["tags"])
       tags.collect { |name, config| Env::Tag.new(name, config: config, secrets: secrets) }
