@@ -30,6 +30,8 @@ class Kamal::Configuration::Proxy
     {
       host: hosts,
       tls: proxy_config["ssl"].presence,
+      "tls-certificate-path": tls_certificate_path,
+      "tls-private-key-path": tls_private_key_path,
       "deploy-timeout": seconds_duration(config.deploy_timeout),
       "drain-timeout": seconds_duration(config.drain_timeout),
       "health-check-interval": seconds_duration(proxy_config.dig("healthcheck", "interval")),
@@ -75,5 +77,13 @@ class Kamal::Configuration::Proxy
 
     def error_pages
       File.join config.proxy_boot.error_pages_container_directory, config.version if config.error_pages_path
+    end
+
+    def tls_certificate_path
+      File.join config.proxy_boot.ssl_certificates_container_directory, "cert.pem" if proxy_config.dig("use_custom_ssl")
+    end
+
+    def tls_private_key_path
+      File.join config.proxy_boot.ssl_certificates_container_directory, "key.pem" if proxy_config.dig("use_custom_ssl")
     end
 end

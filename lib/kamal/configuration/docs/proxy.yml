@@ -52,6 +52,16 @@ proxy:
   # Defaults to `false`:
   ssl: true
 
+  # Custom SSL Certificate
+  #
+  # Custom ssl certificates have to be manually uploaded to the app directory.
+  # .kamal/proxy/apps-config/service-destination/cert/version/cert.pem
+  # .kamal/proxy/apps-config/service-destination/cert/version/key.pem
+  #
+  # Example:
+  use_custom_ssl: false
+
+
   # SSL redirect
   #
   # By default, kamal-proxy will redirect all HTTP requests to HTTPS when SSL is enabled.

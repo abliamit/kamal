@@ -96,6 +96,14 @@ class Kamal::Configuration::Proxy::Boot
     File.join app_container_directory, "error_pages"
   end
 
+  def ssl_certificates_directory
+    File.join app_directory, "cert"
+  end
+
+  def ssl_certificates_container_directory
+    File.join app_container_directory, "cert"
+  end
+
   private
     def ensure_valid_bind_ips(bind_ips)
       bind_ips.present? && bind_ips.each do |ip|
