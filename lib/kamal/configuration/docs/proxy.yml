@@ -52,27 +52,15 @@ proxy:
   # Defaults to `false`:
   ssl: true
 
-  # SSL Certificate
+  # Custom SSL Certificate
   #
-  # Path to the SSL certificate file (usually .crt or .pem).
-  # This certificate will be used by the proxy for HTTPS connections.
-  # The certificate will be uploaded to the proxy container and made available
-  # to the proxy process.
+  # Custom ssl certificates have to be manually uploaded to the app directory.
+  # .kamal/proxy/apps-config/service-destination/cert/version/cert.pem
+  # .kamal/proxy/apps-config/service-destination/cert/version/key.pem
   #
   # Example:
-  # ssl_certificate_path: config/ssl/certificate.crt
-  ssl_certificate_path: config/ssl/certificate.crt
+  use_custom_ssl: false
 
-  # SSL Private Key
-  #
-  # Path to the SSL private key file (usually .key).
-  # This key will be used by the proxy for HTTPS connections.
-  # The key will be uploaded to the proxy container and made available
-  # to the proxy process.
-  #
-  # Example:
-  # ssl_private_key_path: config/ssl/private.key
-  ssl_private_key_path: config/ssl/private.key
 
   # SSL redirect
   #
