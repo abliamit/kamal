@@ -80,10 +80,10 @@ class Kamal::Configuration::Proxy
     end
 
     def tls_certificate_path
-      File.join config.proxy_boot.ssl_certificates_container_directory, config.version, "cert.pem" if proxy_config.dig("use_custom_ssl")
+      File.join config.proxy_boot.ssl_certificates_container_directory, "cert.pem" if proxy_config.dig("use_custom_ssl")
     end
 
     def tls_private_key_path
-      File.join config.proxy_boot.ssl_certificates_container_directory, config.version, "key.pem" if proxy_config.dig("use_custom_ssl")
+      File.join config.proxy_boot.ssl_certificates_container_directory, "key.pem" if proxy_config.dig("use_custom_ssl")
     end
 end
